@@ -1,4 +1,4 @@
-body {
+html, body {
     font-family:'Open Sans', Helvetica, Arial;
     font-size:24px;
     color:#fff;
@@ -9,15 +9,65 @@ fieldset {
     border:none;
 }
 
-header {
+.home h1 {
     background:url(../img/flighty-header-bg.png) repeat 0 0;
     padding:5px 0;
-    height:85px;
+    margin:0;
+    padding-left:20px;
+}
+.home h1 a {
+    display:block;
+    background: url(../img/flighty-logo.png) no-repeat 0 0;
+    height:83px;
+    width:132px;
+    text-indent:-9999px;
 }
 
-header h1 {
+.home ul {
+    display:none;
+}
+
+.map {
+   background-color:#67a9dc;
+   overflow: hidden;
+}
+
+.map h1 {
+    padding:5px 0;
     margin:0;
-    padding-left: 20px;
+    padding-left:20px;
+    float: left;
+}
+
+.map h1 a {
+    display:block;
+    background: url(../img/flighty-logo-small.png) no-repeat 0 0;
+    height:45px;
+    width:72px;
+    text-indent:-9999px;
+}
+
+.map ul {
+    float: right;
+    margin: 10px 20px 0 0;
+}
+
+.map li {
+    float: left;
+    margin-left: 30px;
+    width: 31px;
+    height: 34px;
+}
+
+.map li a {
+    display:block;
+    background: url(../img/flighty-plain.png) no-repeat 0 0;
+    text-indent: -9999px;
+}
+
+.map .back a {
+    width: 33px;
+    background: url(../img/flighty-back.png) no-repeat 0 0;
 }
 
 #traveling {
