@@ -1,6 +1,6 @@
 # Flighty
 
-This is a demo app for Firefox OS, which will show you available flights available, in your region, from point A to point B.
+This is a demo app for Firefox OS, which will show you available flights, from your region, from point A to point B.
 At this time, the application is not finished yet, only the geolocation part is done (using google services to find  the A and B coordinates and HTML5 geolocation).
 
 This project was done by the nyxpoint dev team, http://www.nyxpoint.com.
