@@ -16,37 +16,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="css/base.css">
-    <link rel="stylesheet" type="text/css" href="css/headers.css">
-    <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <link rel="stylesheet" type="text/css" href="css/toolbars.css">
     <title>Flighty</title>
 </head>
 
 <body>
-
-    <section role="region">
-        <header>
-            <menu type="toolbar">
-                <button id="install"><span class="icon icon-add">add</span></button>
-            </menu>
-            <h1><img src="" alt="flighty-logo"></h1>
-        </header>
-    </section>
-
-
-    <div id="main">
-        <div id="flightly-map" style="height:300px;width:100%;">
-            
-        </div>
-    </div>
-
-    <footer>
-        <div role="toolbar">
-            <ul>
-                <li><button id="reload" class="update">Update</button></li>
-            </ul>
-        </div>
-    </footer>
+    <header>
+        <h1><a href="#"><img src="img/flighty-logo.png" alt="flighty-logo"></a></h1>
+    </header>
+    <form>
+        <fieldset>
+            <legend>I'm travelling:</legend>
+            <input type="text" name="from" value="from">
+            <input type="text" name="to" value="to">
+            <input type="submit" value="Get started >">
+        </fieldset>
+    </form>
 
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=&sensor=true"></script>
