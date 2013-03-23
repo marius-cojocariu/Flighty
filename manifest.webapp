@@ -25,6 +25,8 @@
         },
         "geolocation": {
             "description" : "Marking out user location"
+        }, 
+        "systemXHR": {
         }
     }
 }
