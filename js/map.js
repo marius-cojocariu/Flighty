@@ -2,7 +2,7 @@
     var Map, 
         MapOptions = {
             center: new google.maps.LatLng(0, 0),
-            zoom: 8,
+            zoom: 7,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         },
         LocationsLoaded = 0, 
@@ -93,6 +93,10 @@
                 _this.val('to');
             }
         });
+        
+        $('li.back').find('a').bind('click', function() {
+            changeToQuery();
+        });
     }
     
     function changeToQuery() {
@@ -101,9 +105,10 @@
             "margin-top": 65, 
             "padding-left": 20
         });
+        $('header').addClass('home').removeClass('map');
         
-        $('input[name=from]').val('');
-        $('input[name=to]').val('');
+        $('input[name=from]').val('from');
+        $('input[name=to]').val('to');
     }
     
     function changeToMap() {
@@ -112,6 +117,7 @@
             "padding-left": 0
         });
         $('#flightly-map').show();
+        $('header').removeClass('home').addClass('map');
         
         if(!Map)
             Map = initialize();

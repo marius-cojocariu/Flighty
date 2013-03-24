@@ -11,9 +11,8 @@ fieldset {
 
 .home h1 {
     background:url(../img/flighty-header-bg.png) repeat 0 0;
-    padding:5px 0;
     margin:0;
-    padding-left:20px;
+    padding:5px 0;
 }
 .home h1 a {
     display:block;
@@ -33,10 +32,9 @@ fieldset {
 }
 
 .map h1 {
-    padding:5px 0;
     margin:0;
-    padding-left:20px;
     float: left;
+    padding:5px 0;
 }
 
 .map h1 a {
@@ -71,16 +69,15 @@ fieldset {
 }
 
 #traveling {
-    padding-left:20px;
     margin-top: 65px;
-    width: 370px;
+    width: 100%;
 }
 
 #traveling input {
     display:block;
-    width: 365px;
+    width:260px;
     border:1px solid #fff;
-    height: 50px;
+    height:50px;
     line-height:50px;
     border-radius: 5px;
     background:url(../img/flighty-header-bg.png) repeat 0 0;
@@ -95,7 +92,7 @@ fieldset {
     border-radius:15px;
     height: 42px;
     line-height:42px;
-    width: 200px;
+    width: auto;
     cursor:pointer;
     background-image:url("../img/flighty-submit-bg.png");
 }
@@ -112,7 +109,7 @@ fieldset {
 }
 
 #flightly-map {
-    height:300px;
+    height:500px;
     width:100%;
     display:none;
 }
