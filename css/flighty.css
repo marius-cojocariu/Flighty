@@ -60,3 +60,9 @@ header h1 {
         background:url(../img/flighty-bg.jpg) repeat-x 0 0;
     }
 }
+
+#flightly-map {
+    height:300px;
+    width:100%;
+    display:none;
+}

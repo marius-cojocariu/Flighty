@@ -1,12 +1,10 @@
 (function($, window, undefined) {
     var Map, 
         MapOptions = {
-            center: new google.maps.LatLng(-34.397, 150.644),
-            zoom: 2,
+            center: new google.maps.LatLng(0, 0),
+            zoom: 8,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        }, 
-        From = "Iasi", 
-        To = "Bucuresti", 
+        },
         LocationsLoaded = 0, 
         DestPoints = [];
     
@@ -40,15 +38,20 @@
         });
     }
     
-    function addMarkerToMap(data) {
-        var image = 'beachflag.png';
+    function addMarkerToMap(data, current_location_marker) {
+        var image = 'img/flighty-location-pin.png';
+        
+        if(current_location_marker === true) {
+            image = 'img/flighty-current-location-pin.png';
+        }
+        
         var marker_latlng = new google.maps.LatLng(data.lat, data.lng);
 
         var marker = new google.maps.Marker({
             "position": marker_latlng,
             "map": Map,
             "title":data.formatted_address, 
-            //"icon": image
+            "icon": image
         });
     }
     
@@ -66,9 +69,80 @@
         flightPath.setMap(Map);
     }
     
+    function initUI() {
+        $('input[name=from]').bind("focus", function() {
+            var _this = $(this);
+            if(_this.val() === 'from') {
+                _this.val('');
+            }
+        }).bind("blur", function() {
+            var _this = $(this);
+            if(_this.val() === '') {
+                _this.val('from');
+            }
+        });
+        
+        $('input[name=to]').bind("focus", function() {
+            var _this = $(this);
+            if(_this.val() === 'to') {
+                _this.val('');
+            }
+        }).bind("blur", function() {
+            var _this = $(this);
+            if(_this.val() === '') {
+                _this.val('to');
+            }
+        });
+    }
+    
+    function changeToQuery() {
+        $('#flightly-map').hide();
+        $('#traveling').find('fieldset').show().end().css({
+            "margin-top": 65, 
+            "padding-left": 20
+        });
+        
+        $('input[name=from]').val('');
+        $('input[name=to]').val('');
+    }
+    
+    function changeToMap() {
+        $('#traveling').find('fieldset').hide().end().css({
+            "margin-top": 0, 
+            "padding-left": 0
+        });
+        $('#flightly-map').show();
+        
+        if(!Map)
+            Map = initialize();
+        
+        detectLocation();
+        geocodeApiResult($('input[name=from]').val(), addMarkerToMap);
+        geocodeApiResult($('input[name=to]').val(), addMarkerToMap);
+    }
+    
+    function detectLocation() {
+        var initialLocation;
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+              Map.setCenter(initialLocation);
+              addMarkerToMap({
+                    "lat": position.coords.latitude, 
+                    "lng": position.coords.longitude, 
+                    "formatted_address": "Current location"
+              }, true);
+            }, function() {
+            });
+        }
+    }
+    
     $(function() {
-        Map = initialize();
-        geocodeApiResult("Iasi", addMarkerToMap);
-        geocodeApiResult("Bucuresti", addMarkerToMap);
+        initUI();
+        
+        $('#traveling').find('input[type=button]').bind('click', function() {
+            changeToMap();
+            return false;
+        });
     });
 })(jQuery, this);
