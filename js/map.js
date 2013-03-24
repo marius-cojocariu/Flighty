@@ -109,6 +109,9 @@
         
         $('input[name=from]').val('from');
         $('input[name=to]').val('to');
+        
+        LocationsLoaded = 0;
+        DestPoints = [];
     }
     
     function changeToMap() {
